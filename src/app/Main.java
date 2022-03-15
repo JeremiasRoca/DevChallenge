@@ -4,17 +4,41 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import model.Password;
+
 public class Main {
 static Scanner scan = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		
-		///EJERCICIO 1
+		
 		//ejercicio1();
 		//ejercicio2();
 		//ejercicio3();
 		//ejercicio4();
-		ejercicio5();
+		//ejercicio5();
+		String pas;
+		Password pass2=new Password(15);
+		Password pass3 = new Password();
+		System.out.println("Ingrese una contraseña");
+		pas= scan.next();
+		Password pass = new Password(pas);
+		
+		System.out.println(pass2.getContraseña());
+		if(pass2.esFuerte()) {
+			System.out.println("La contraseña elegida es Segura!");
+		}else {
+			System.out.println("La contraseña elegida es Insegura");
+		}
+		
+		System.out.println(pass3.getContraseña());
+		if(pass3.esFuerte()) {
+			System.out.println("La contraseña elegida es Segura!");
+		}else {
+			System.out.println("La contraseña elegida es Insegura");
+		}
+		
+		
 	}
 	
 	///Challenge Algoritmos, Ejercicio 1
