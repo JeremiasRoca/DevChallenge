@@ -11,32 +11,67 @@ static Scanner scan = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		
-		
-		//ejercicio1();
-		//ejercicio2();
-		//ejercicio3();
-		//ejercicio4();
-		//ejercicio5();
+		int opcion=0, opcion2=0;
 		String pas;
-		Password pass2=new Password(15);
-		Password pass3 = new Password();
-		System.out.println("Ingrese una contraseña");
-		pas= scan.next();
-		Password pass = new Password(pas);
 		
-		System.out.println(pass2.getContraseña());
-		if(pass2.esFuerte()) {
-			System.out.println("La contraseña elegida es Segura!");
-		}else {
-			System.out.println("La contraseña elegida es Insegura");
-		}
+		do {
+			menu();
+			opcion = scan.nextInt();
+			switch(opcion) {
+			case 1:
+				
+				do {
+					menuAlgoritmos();
+					opcion2=scan.nextInt();
+					switch(opcion2){
+					case 1:
+						ejercicio1();
+						break;
+					case 2:
+						ejercicio2();
+						break;
+					case 3:
+						ejercicio3();
+						break;
+					case 4:
+						ejercicio4();
+						break;
+					case 5:
+						ejercicio5();
+						break;
+						
+					}
+				}while(opcion2!=0);
+				
+				
+				break;
+			case 2:
+				Password pass2=new Password(15);
+				Password pass3 = new Password();
+				System.out.println("Ingrese una contraseña");
+				pas= scan.next();
+				Password pass = new Password(pas);
+				
+				System.out.println(pass2.getContraseña());
+				if(pass2.esFuerte()) {
+					System.out.println("La contraseña elegida es Segura!");
+				}else {
+					System.out.println("La contraseña elegida es Insegura");
+				}
+				
+				System.out.println(pass3.getContraseña());
+				if(pass3.esFuerte()) {
+					System.out.println("La contraseña elegida es Segura!");
+				}else {
+					System.out.println("La contraseña elegida es Insegura");
+				}
+				
+				
+				break;
+			}
+		}while(opcion!=0);
 		
-		System.out.println(pass3.getContraseña());
-		if(pass3.esFuerte()) {
-			System.out.println("La contraseña elegida es Segura!");
-		}else {
-			System.out.println("La contraseña elegida es Insegura");
-		}
+		
 		
 		
 	}
@@ -264,6 +299,23 @@ static Scanner scan = new Scanner(System.in);
 				
 			}
 			return suma;
+		}
+		
+		public static void menu() {
+			System.out.println("\n\n\t\t\t DEV PLEACE CHALLENGE \n\n");
+			System.out.println("|1| Challenge Algoritmos. ");
+			System.out.println("|2| Challenge POO. ");
+			System.out.println("\n|0| para salir...");
+		}
+		
+		public static void menuAlgoritmos() {
+			System.out.println("\t\t\t Challenge Algoritmos \n\n");
+			System.out.println("|1| Ejercio 1. ");
+			System.out.println("|2| Ejercio 2. ");
+			System.out.println("|3| Ejercio 3. ");
+			System.out.println("|4| Ejercio 4. ");
+			System.out.println("|5| Ejercio 5. ");
+			System.out.println("\n|0| para salir...");
 		}
 		
 }
