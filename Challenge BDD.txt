@@ -1,0 +1,40 @@
+CREATE DATABASE BDDChallenge;
+use BDDChallenge;
+
+CREATE TABLE empleado(
+idEmpleado int AUTO_INCREMENT,
+    nombre varchar(50) not null,
+    apellido varchar(50) not null,
+	telefono varchar(15) not null,
+	email varchar(50) not null,
+	CONSTRAINT pk_empleado PRIMARY KEY(idEmpleado)
+);
+
+CREATE TABLE detalleEmpleado(
+idDetalle int AUTO_INCREMENT,
+    idEmpleado int(3) not null,
+    nombrePuesto varchar(50) not null,
+    municipalidad varchar(50) not null,
+	antiguedad int(3) not null,
+    salario float (50)NOT null,
+	CONSTRAINT pk_detalle PRIMARY KEY(idDetalle),
+    CONSTRAINT fk_detalle FOREIGN KEY (idEmpleado) REFERENCES empleado (idEmpleado)
+);
+    
+    INSERT INTO empleado (nombre,apellido,telefono,email)VALUES ("pedro","hernandez","123456","pedroh@gmail");
+    INSERT INTO empleado (nombre,apellido,telefono,email)VALUES ("juan","perez","223344","juanp@gmail");
+    INSERT INTO empleado (nombre,apellido,telefono,email)VALUES ("alan","diaz","335566","aland@gmail");
+    INSERT INTO empleado (nombre,apellido,telefono,email)VALUES ("santiago","lopez","654321","santiagol@gmail");
+
+    INSERT INTO detalleEmpleado (idEmpleado,nombrePuesto,municipalidad,antiguedad, salario) VALUES (0,"junior", "general",10,50000);
+    INSERT INTO detalleEmpleado (idEmpleado,nombrePuesto,municipalidad,antiguedad, salario) VALUES (1,"senior", "general",15,150000);
+    INSERT INTO detalleEmpleado (idEmpleado,nombrePuesto,municipalidad,antiguedad, salario) VALUES (2,"master", "los alpes",11,75000);
+    INSERT INTO detalleEmpleado (idEmpleado,nombrePuesto,municipalidad,antiguedad, salario) VALUES (3,"senior", "general",13,120000);
+    
+    SELECT e.nombre,e.apellido,e.telefono,e.email, d.nombrePuesto,d.municipalidad,d.antiguedad
+    FROM empleado e
+	INNER join e.idEmpleado = d.idEmpleado,
+    WHERE (d.salario > 70000 AND d.antiguedad 10 BETWEEN 15) 
+    /*
+    Me falta aprender mas de SQL
+    */
